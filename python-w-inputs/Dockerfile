@@ -11,3 +11,4 @@ CMD ["python", "rng.py"]
 # docker run -i - which is the interactive mode allopwing for inputs
 # docker run -t - which opens a psudo terminal
 # we casn combine the two with docker run -it <id>|<name>
+# to restart docker start -a -i <id>|<name>
