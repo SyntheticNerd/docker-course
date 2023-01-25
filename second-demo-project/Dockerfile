@@ -32,13 +32,14 @@ CMD ["node", "server.js"]
 #?        - you can find the running container name either in docker desktop or by tytping: docker ps
 #? 4. You can restart a container with: docker start container_name
 #?        - This is different than docker run in that it is in detached mode
+#?        - Use docker start -a <id>|<name> to start in attached mode
 #?        - Detach mode means that the container runs in the background rather than in your terminal
 #? 5. You can attach a container running in the background with:
 #?        - docker attach <id>|<name>
 #? 6. You can see the logs of a detached container:
 #?        - docker logs <id>|<name>
 #?        - or use: docker attach -f <id>|<name>
-#?          - This will print out the logs and leave you in attchaed mode to see future logs
+#?            - This will print out the logs and leave you in attchaed mode to see future logs
 
 #* Side note you dont have to use the full docker i.d. just enough character to uniqely identify it.
 
