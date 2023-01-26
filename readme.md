@@ -1,5 +1,35 @@
 # Docker Stuff
 
+## Building a Dockerfile Basics
+
+``` txt
+# Starting from an official image
+# Find them at https://hub.docker.com/search?image_filter=official&q=
+FROM node
+
+# Sets the working directory, i.e. where the commands happen for the project
+WORKDIR /app
+
+# First we copy the package.json to the working directory of the image taking advantage of Dockers cached layer system
+COPY package.json /app
+# Then we run npm install which will be cached and only ran if the package.json has changed
+RUN npm install
+
+# using copy . . specifies two paths first . is everything inside the root the second is a folder in the image container which we called app
+# a ./ specifies the relative path to the current WORKDIR(working directory) in this container which is set to /app
+# we are going to stick to the absolute path rather than the relative path so the root directory followed by the working directory this copies the rest of the files from local to the image
+COPY . /app
+
+# this is like a comment on which port will be exposed to our local machine that the application is running on this wont actually expose the port that needs to be done when executing the Docker run command
+EXPOSE 80
+
+# If you don't specify a CMD the base image will run; no base image and no CMD will result in an error
+# CMD is an array of strings using ""(double quotes)
+# should be used as a way of defining default arguments for an ENTRYPOINT command or for executing an ad-hoc command in a container.
+# In this case we use it to spin up a node server
+CMD ["node", "server.js"]
+```
+
 ## TERMINAL COMMANDS
 
 1. `docker build .` tells docker to build a new custom image based on our Dockerfile
