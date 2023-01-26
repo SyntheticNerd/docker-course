@@ -30,6 +30,16 @@ EXPOSE 80
 CMD ["node", "server.js"]
 ```
 
+### Notes on Layered Caching
+
+- Each line in a Dockerfile represents a layer
+- Each layer gets cached
+- If the image get rebuilt and docker detects that there were no changes to the files pertaining to a particular layer it skips it using the cache
+- When docker does detect a change it will re-run that layer and all layer after.
+- We can use this to out advantage.
+- By copying our package.json and running npm install BEFORE we copy the other project files
+- Since package.json and node are updated less often we can skip the image having to rebuild the node files every time the project is worked on
+
 ## TERMINAL COMMANDS
 
 1. `docker build .` tells docker to build a new custom image based on our Dockerfile
@@ -72,7 +82,7 @@ CMD ["node", "server.js"]
 15. When building as image adding a `-t name:tag(optional)` to the docker build command allows you to set a name and a optional tag.
     - `docker build -t name:tag .`
       - don't forget that `.` at the end or specify which file your building an image from
-16. 
+16.
 
 ## Side notes
 
