@@ -39,7 +39,10 @@
 13. Tagging Images
 14. Adding `--name yourName` to a docker run command lets you name your container.
     - `docker run -p 3000:80 -d --rm --name appName <imageid>`
-15. 
+15. When building as image adding a `-t name:tag(optional)` to the docker build command allows you to set a name and a optional tag.
+    - `docker build -t name:tag .`
+      - don't forget that `.` at the end or specify which file your building an image from
+16. 
 
 ## Side notes
 
