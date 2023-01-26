@@ -26,6 +26,20 @@
    - You can only remove images is the container doesn't exist anymore
 9. add the `--rm` tag to a docker run command to ensure a container get removed when it is stopped
     - Example: `docker run -p 3000:80 -d --rm <imageid>`
+10. `docker image inspect <imageid>` is a way to inspect the actual image, info like
+    - when it was create
+    - the image id
+    - what OS it uses
+11. `docker cp local_folder/. <container_name>:</folderName>` to copy local into container
+    - If the folder does not exist it will be created
+    - ==**You can use this to copy files into the container but it is BUG PRONE**==
+    - There will be a better way later
+12. `docker cp <container_name>:</folderName> local_folder` to copy container into local
+    - If the folder does not exist it will be created
+13. Tagging Images
+14. Adding `--name yourName` to a docker run command lets you name your container.
+    - `docker run -p 3000:80 -d --rm --name appName <imageid>`
+15. 
 
 ## Side notes
 
