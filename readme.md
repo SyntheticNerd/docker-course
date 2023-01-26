@@ -5,6 +5,7 @@
 ``` txt
 # Starting from an official image
 # Find them at https://hub.docker.com/search?image_filter=official&q=
+# If you want to specify a specific version use a tag :version#
 FROM node
 
 # Sets the working directory, i.e. where the commands happen for the project
@@ -12,6 +13,7 @@ WORKDIR /app
 
 # First we copy the package.json to the working directory of the image taking advantage of Dockers cached layer system
 COPY package.json /app
+
 # Then we run npm install which will be cached and only ran if the package.json has changed
 RUN npm install
 
@@ -59,7 +61,7 @@ CMD ["node", "server.js"]
 6. You can see the logs of a detached container: `docker logs <id>|<name>`
    - or use: `docker attach -f <id>|<name>`
      - This will print out the logs and leave you in attached mode to see future logs
-7. To remove docker images: docker rm \<id>|\<name>
+7. To remove docker images: `docker rm <id>|<name>`
    - NOTE: you can not remove running containers
 8. `docker images` will show all the images you have saved locally
    - To Remove images use `docker rmi <imageid>`
