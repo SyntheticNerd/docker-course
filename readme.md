@@ -2,7 +2,7 @@
 
 ## TERMINAL COMMANDS
 
-1. docker build . //tells docker to build a new custom image based on our Dockerfile
+1. `docker build .` tells docker to build a new custom image based on our Dockerfile
 2. copy the i.d. that was generated for you and in the terminal do
    - `docker run <id>|<name>` (which is your i.d. number; might look different for windows vs mac users)
    - BUT THIS WONT EXPOSE THE PORT in order to properly expose the port you need to use the -p (publish) tag and specify what port you want it accessed locally and which port the application was given access to something like 3000:80
